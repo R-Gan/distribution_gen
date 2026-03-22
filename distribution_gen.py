@@ -1,3 +1,4 @@
+# CALCULATIONS
 def generate_distribution(N=20, podium=(25,18,14), drop_4th=0.6, drop_5th=0.6, decay=0.6, min_val=0.01):
     """
     Strictly decreasing distribution with no repeated values.
@@ -36,6 +37,7 @@ def print_distribution(dist):
     for place,val in dist:
         print(f"{place:>5} | {val:.2f}")
 
+# GRAPHIC GENERATION
 import matplotlib.pyplot as plt
 
 def plot_distribution_side_by_side(dist):
@@ -66,7 +68,7 @@ def plot_distribution_side_by_side(dist):
     plt.show()
 
 
-# RUN EXAMPLE
+# RUN
 if __name__ == "__main__":
     dist = generate_distribution(
         N=18,
