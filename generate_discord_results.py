@@ -6,7 +6,7 @@ import argparse
 
 def main(argv: Optional[List[str]] = None) -> None:
     parser = argparse.ArgumentParser(description="Calculate poll results into point allocations")
-    parser.add_argument("--poll-file", default="json_poll/poll_fab4d87b-747c-4127-bf26-419bb538147e.json")
+    parser.add_argument("--poll-file", default="json_poll/test_poll.json")
     parser.add_argument("--results-file", default="live_results/results.json")
     parser.add_argument("--point-pool", type=int, default=100)
 

@@ -87,7 +87,7 @@ def calc_results_map(poll_file: str, results_file: str, point_pool: int = 100) -
 # pulls from optional command line args
 def main(argv: Optional[List[str]] = None) -> None:
     parser = argparse.ArgumentParser(description="Calculate poll results into point allocations")
-    parser.add_argument("--poll-file", default="src/json_poll/poll_fab4d87b-747c-4127-bf26-419bb538147e.json")
+    parser.add_argument("--poll-file", default="src/json_poll/test_poll.json")
     parser.add_argument("--results-file", default="src/live_results/results.json")
     parser.add_argument("--point-pool", type=int, default=100)
     args = parser.parse_args(argv)

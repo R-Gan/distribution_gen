@@ -16,9 +16,8 @@ python -m build
 
 Run
 ```
-python distribution_gen.py
-# or
-python -m distribution_gen
+python generate_discord_results.py
+python generate_discord_results.py --poll-file json_poll/test_poll.json --results-file live_results/results.json --point-pool 100
 ```
 
 pip install -e .
