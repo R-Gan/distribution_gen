@@ -6,7 +6,7 @@ from collections import defaultdict
 from pathlib import Path
 from typing import Dict, List, Optional
 
-from distribution_gen._core import generate_distribution
+from src.distribution_gen._core import generate_distribution
 
 
 def load_file(path: str | Path) -> dict:
@@ -68,16 +68,15 @@ def calc_results_map(poll_file: str, results_file: str, point_pool: int = 100) -
 
     This can be called programmatically without triggering CLI parsing.
     """
-    print(point_pool)
     poll = load_file(poll_file)
     results = load_file(results_file).get("results", [])
 
     # key: answer name, value: list of usernames
     votes_map = build_votes_map(poll)
-    print(f"Votes map (answer name -> list of usernames):\n{json.dumps(votes_map, indent=2)}")
+    # print(f"Votes map (answer name -> list of usernames):\n{json.dumps(votes_map, indent=2)}")
 
     _, scalars = generate_distribution()
-    print(f"Scalars: {scalars}")
+    # print(f"Scalars: {scalars}")
 
     points_map = generate_points_map(results, votes_map, scalars, point_pool)
 
@@ -88,12 +87,11 @@ def calc_results_map(poll_file: str, results_file: str, point_pool: int = 100) -
 # pulls from optional command line args
 def main(argv: Optional[List[str]] = None) -> None:
     parser = argparse.ArgumentParser(description="Calculate poll results into point allocations")
-    parser.add_argument("--poll-file", default="json_poll/poll_fab4d87b-747c-4127-bf26-419bb538147e.json")
-    parser.add_argument("--results-file", default="live_results/results.json")
+    parser.add_argument("--poll-file", default="src/json_poll/poll_fab4d87b-747c-4127-bf26-419bb538147e.json")
+    parser.add_argument("--results-file", default="src/live_results/results.json")
     parser.add_argument("--point-pool", type=int, default=100)
     args = parser.parse_args(argv)
 
-    print(args.point_pool)
     points_map = calc_results_map(args.poll_file, args.results_file, args.point_pool)
 
     print("\nPoints map (username -> points):")

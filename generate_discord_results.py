@@ -1,4 +1,5 @@
-from calc_results._core import load_file, build_answers_map, build_votes_map, calc_results_map
+from src.calc_results._core import load_file, build_answers_map, build_votes_map, calc_results_map
+from src.discord_formatter._core import load_username_override_map, generate_discord_markdown
 
 from typing import Dict, List, Optional
 import argparse
@@ -13,11 +14,14 @@ def main(argv: Optional[List[str]] = None) -> None:
     
     points_map = calc_results_map(args.poll_file, args.results_file, args.point_pool)
 
+    username_override_map = load_username_override_map("username_override_map.json")
+    discord_markdown = generate_discord_markdown(points_map, username_override_map)
 
+    print("\n==================================")
+    print("BELOW IS DISCORD MARKDOWN TO COPY")
+    print("==================================\n")
 
-    print("\nPoints map (username -> points):")
-    for k, v in points_map.items():
-        print(f"- {k}: {v:.2f}")
+    print(discord_markdown)
 
 if __name__ == "__main__":
     main()
