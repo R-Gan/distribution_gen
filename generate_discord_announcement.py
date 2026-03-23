@@ -1,5 +1,5 @@
 from src.calc_results._core import load_file, build_answers_map, build_votes_map, calc_results_map
-from src.discord_formatter._core import load_username_override_map, generate_discord_markup
+from src.discord_formatter._core import generate_discord_announcement_markup, load_race_lineups_map
 
 from typing import Dict, List, Optional
 import argparse
@@ -14,8 +14,8 @@ def main(argv: Optional[List[str]] = None) -> None:
     
     points_map = calc_results_map(args.poll_file, args.results_file, args.point_pool)
 
-    username_override_map = load_username_override_map("username_override_map.json")
-    discord_markup = generate_discord_markup(points_map, username_override_map)
+    race_lineups = load_race_lineups_map("race_lineups")
+    discord_markup = generate_discord_announcement_markup(race_lineups)
 
     print("\n==================================")
     print("BELOW IS DISCORD MARKUP TO COPY")

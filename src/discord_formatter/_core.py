@@ -12,7 +12,47 @@ def load_username_override_map(path: Union[str, Path]) -> Mapping[str, str]:
         raise ValueError(f"{path} must contain a JSON object username->displayname")
     return {str(k): str(v) for k, v in data.items()}
 
-def generate_discord_markdown(
+def load_race_lineups_map(path: Union[str, Path]) -> Mapping[str, Mapping[str, Mapping[str, str]]]:
+    p = Path(path)
+    if not p.is_dir():
+        return {}
+    lineups = {}
+    for file in p.glob('*.json'):
+        race = file.stem
+        with file.open('r', encoding='utf-8') as f:
+            data = json.load(f)
+        if not isinstance(data, dict):
+            raise ValueError(f"{file} must contain a JSON object horse->{{odds, favorite}}")
+        lineups[race] = {str(k): v for k, v in data.items()}
+    return lineups
+
+def generate_discord_announcement_markup(race_lineups: Mapping[str, Mapping[str, Mapping[str, str]]]) -> str:
+    lines = ["**Upcoming Race Lineups:**\n"]
+
+    for race, lineup in race_lineups.items():
+        curr_max = 0
+        for horse in lineup.keys():
+            curr_max = max(curr_max, len(horse))
+
+        lines.append(f"**{race}:**\n")
+        horse_padding = " " * (curr_max - len("horse") + 1)
+        fav_padding = " " * (5 - len("fav") + 1)
+        odds_padding = " " * (5 - len("odds") + 1)
+        header = f"```horse{horse_padding}|fav{fav_padding}|odds{odds_padding}"
+        lines.append(header)
+        lines.append("+" * len(header))
+        horses = sorted(lineup.items(), key=lambda x: int(x[1]['favorite']))
+        for horse, data in horses:
+            odds = data['odds']
+            fav = data['favorite']
+            horse_padding = " " * (curr_max - len(horse) + 2)
+            fav_padding = " " * (5 - len(fav) + 2)
+            odds_padding = " " * (5 - len(odds) + 2)
+            lines.append(f"{horse}{horse_padding}{fav}{fav_padding}{odds}{odds_padding}")
+        lines.append("```")
+    return "\n".join(lines)
+
+def generate_discord_markup(
     points_map: Mapping[str, float],
     override_map: Optional[Mapping[str, str]] = None
 ) -> str:
