@@ -26,7 +26,7 @@ def load_race_lineups_map(path: Union[str, Path]) -> Mapping[str, Mapping[str, M
         lineups[race] = {str(k): v for k, v in data.items()}
     return lineups
 
-def generate_discord_announcement_markup(race_lineups: Mapping[str, Mapping[str, Mapping[str, str]]]) -> str:
+def generate_discord_announcement_markdown(race_lineups: Mapping[str, Mapping[str, Mapping[str, str]]], total_horses: int) -> str:
     lines = ["**Upcoming Race Lineups:**\n"]
 
     for race, lineup in race_lineups.items():
@@ -42,7 +42,7 @@ def generate_discord_announcement_markup(race_lineups: Mapping[str, Mapping[str,
         lines.append(header)
         lines.append("+" * len(header))
         horses = sorted(lineup.items(), key=lambda x: int(x[1]['favorite']))
-        for horse, data in horses:
+        for horse, data in horses[:total_horses]:
             odds = data['odds']
             fav = data['favorite']
             horse_padding = " " * (curr_max - len(horse) + 2)
@@ -52,7 +52,7 @@ def generate_discord_announcement_markup(race_lineups: Mapping[str, Mapping[str,
         lines.append("```")
     return "\n".join(lines)
 
-def generate_discord_markup(
+def generate_discord_markdown(
     points_map: Mapping[str, float],
     override_map: Optional[Mapping[str, str]] = None
 ) -> str:

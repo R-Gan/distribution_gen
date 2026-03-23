@@ -3,6 +3,8 @@ from src.discord_formatter._core import load_race_lineups_map
 import argparse
 
 def main(argv: Optional[List[str]] = None) -> None:
+    TOTAL_HORSE_ANSWER = 18
+
     parser = argparse.ArgumentParser(description="Calculate poll results into point allocations")
     parser.add_argument("--poll-file", default="json_poll/test_poll.json")
     parser.add_argument("--results-file", default="live_results/results.json")
@@ -16,8 +18,6 @@ def main(argv: Optional[List[str]] = None) -> None:
     print("You may need to click the poll command, it should then auto format and accept the parameters")
     print("==================================\n")
 
-# /poll question:Who will win the 2026 Takamatsunomiya Kinen? type:Hidden (Select Menu) maxchoices:3 text:Who will win the 2026 Takamatsunomiya Kinen?
-
     race_lineups = load_race_lineups_map("race_lineups")
 
     command = "/poll"
@@ -28,8 +28,11 @@ def main(argv: Optional[List[str]] = None) -> None:
 
     final_command = f"{command} {question} {type} {maxchoices} {text} "
 
-    horse_list = race_lineups.get("2026TAKAMATSUNOMIYA_KINEN", {}).keys()
-    for index, horse in enumerate(horse_list):
+    # The poll command has a hard limit at 20
+    # final lineup will be 18
+
+    horse_list = list(race_lineups.get("2026TAKAMATSUNOMIYA_KINEN", {}).keys())
+    for index, horse in enumerate(horse_list[:TOTAL_HORSE_ANSWER]):
         final_command += f"answer-{index + 1}:{horse} "
     
     print("\n\n")
