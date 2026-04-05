@@ -1,14 +1,17 @@
+from pathlib import Path
 from typing import Dict, List, Optional
 from src.discord_formatter._core import load_race_lineups_map
 import argparse
 
 def main(argv: Optional[List[str]] = None) -> None:
+    # used in cases where the official lineup has more than 18 horses before it becomes official
+    # Just take the top TOTAL_HORSE_ANSWER horses
     TOTAL_HORSE_ANSWER = 18
 
-    parser = argparse.ArgumentParser(description="Calculate poll results into point allocations")
-    parser.add_argument("--poll-file", default="json_poll/test_poll.json")
-    parser.add_argument("--results-file", default="live_results/results.json")
-    parser.add_argument("--point-pool", type=int, default=100)
+    parser = argparse.ArgumentParser(description="Generate Discord poll command from a single lineup")
+    parser.add_argument("--lineup-file", default="race_lineups/dummy_lineup.json")
+    parser.add_argument("--time", type=int, default=1893499200, help="Unix timestamp for the poll duration")
+
 
     args = parser.parse_args(argv)
     
@@ -18,20 +21,22 @@ def main(argv: Optional[List[str]] = None) -> None:
     print("You may need to click the poll command, it should then auto format and accept the parameters")
     print("==================================\n")
 
-    race_lineups = load_race_lineups_map("race_lineups")
+    race_lineup = load_race_lineups_map(args.lineup_file)
+    race_name = Path(args.lineup_file).stem
 
-    command = "/poll"
-    question = "question:Select 3 horses for the 2026 Takamatsunomiya Kinen"
+    command = "/timepoll"
+    time = f"time:{args.time}"
+    question = f"question:Select 3 horses for the {race_name}"
     type = "type:Hidden (Select Menu)"
     maxchoices = "maxchoices:3"
-    text = "text:Who will win the 2026 Takamatsunomiya Kinen?"
+    text = f"text:Who will win the {race_name}?"
 
-    final_command = f"{command} {question} {type} {maxchoices} {text} "
+    final_command = f"{command} {time} {question} {type} {maxchoices} {text} "
 
     # The poll command has a hard limit at 20
     # final lineup will be 18
 
-    horse_list = list(race_lineups.get("2026TAKAMATSUNOMIYA_KINEN", {}).keys())
+    horse_list = list(race_lineup.keys())
     for index, horse in enumerate(horse_list[:TOTAL_HORSE_ANSWER]):
         final_command += f"answer-{index + 1}:{horse} "
     

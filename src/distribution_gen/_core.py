@@ -1,5 +1,4 @@
-# CALCULATIONS
-def generate_distribution(N=20, podium=(25,18,14), drop_4th=0.6, drop_5th=0.6, decay=0.6, min_val=0.01):
+def generate_distribution(N=18, podium=(25,18,14), drop_4th=0.6, drop_5th=0.6, decay=0.6, min_val=1):
     """
     Strictly decreasing distribution with no repeated values.
     
@@ -32,7 +31,17 @@ def generate_distribution(N=20, podium=(25,18,14), drop_4th=0.6, drop_5th=0.6, d
         distribution.append((i,val))
         distribution_scalars.append(val)
         prev = val
-    
+
+    # Normalize to 100%
+    totalPercent = sum(distribution_scalars)
+
+    scale = 100 / totalPercent
+    distribution = [(pos, val * scale) for pos, val in distribution]
+    distribution_scalars = [v * scale for v in distribution_scalars]
+
+    totalPercent = sum(distribution_scalars)
+    print(f"Total percentage allocated: {totalPercent:.2f}%")
+
     return (distribution, distribution_scalars)
 
 def print_distribution(dist):
@@ -78,7 +87,7 @@ def main():
         drop_4th=0.6,
         drop_5th=0.8,
         decay=0.8,
-        min_val=0.001
+        min_val=1
     )
     print(scalars)
     print_distribution(dist)
