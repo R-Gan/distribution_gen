@@ -1,0 +1,4 @@
+/dist
+/distribution_gen.egg-info
+__pycache__/
+bugs_and_todo_list.txt

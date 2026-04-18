@@ -1,0 +1,17 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "distribution_gen"
+version = "0.1.0"
+description = "Generate and plot a strictly decreasing points distribution (uses matplotlib)"
+readme = "README.md"
+requires-python = ">=3.8"
+dependencies = [
+  "matplotlib>=3.0"
+]
+authors = [ { name = "Your Name" } ]
+
+[project.scripts]
+calc-results = "distribution_gen.calc_results._core:main"

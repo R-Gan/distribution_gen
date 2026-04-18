@@ -1,0 +1,339 @@
+{
+    "results": [
+        {
+            "date": "2026-03-27",
+            "players": {
+                "eggvis": {
+                    "points": 9.13,
+                    "first_place": false
+                },
+                "yeenster": {
+                    "points": 8.3,
+                    "first_place": true
+                },
+                ".lil_panda": {
+                    "points": 7.02,
+                    "first_place": false
+                },
+                "rubylunaria": {
+                    "points": 6.12,
+                    "first_place": true
+                },
+                "o0lupusregina0o": {
+                    "points": 4.97,
+                    "first_place": true
+                },
+                "lagixbtd": {
+                    "points": 4.89,
+                    "first_place": true
+                },
+                "_kurooo": {
+                    "points": 4.09,
+                    "first_place": true
+                },
+                "johnprettyderby": {
+                    "points": 4.02,
+                    "first_place": true
+                },
+                "pengwulf_57": {
+                    "points": 3.85,
+                    "first_place": false
+                },
+                "senkizu_": {
+                    "points": 2.99,
+                    "first_place": true
+                },
+                "blanc9999": {
+                    "points": 2.88,
+                    "first_place": true
+                },
+                "dekomage": {
+                    "points": 2.88,
+                    "first_place": true
+                },
+                "kuwarala": {
+                    "points": 2.71,
+                    "first_place": true
+                },
+                "txkyel": {
+                    "points": 2.58,
+                    "first_place": true
+                },
+                "crunexx": {
+                    "points": 2.42,
+                    "first_place": true
+                },
+                "hikaru_r0": {
+                    "points": 2.03,
+                    "first_place": false
+                },
+                "yerd_yerd": {
+                    "points": 1.93,
+                    "first_place": false
+                },
+                "acs20": {
+                    "points": 1.72,
+                    "first_place": false
+                },
+                "darklordofbunnies": {
+                    "points": 0.92,
+                    "first_place": false
+                },
+                "linh124": {
+                    "points": 0.8,
+                    "first_place": false
+                },
+                "kernalpult33": {
+                    "points": 0.72,
+                    "first_place": false
+                },
+                "aster_vv": {
+                    "points": 0.64,
+                    "first_place": false
+                },
+                "powerfulcar": {
+                    "points": 0.45,
+                    "first_place": false
+                },
+                "arzen_": {
+                    "points": 0.15,
+                    "first_place": false
+                },
+                "dahei0201": {
+                    "points": 0.13,
+                    "first_place": false
+                }
+            }
+        },
+        {
+            "date": "2026-04-05",
+            "players": {
+                ".lil_panda": {
+                    "points": 3.24,
+                    "first_place": true
+                },
+                "_kurooo": {
+                    "points": 3.28,
+                    "first_place": true
+                },
+                "acs20": {
+                    "points": 3.58,
+                    "first_place": false
+                },
+                "arzen_": {
+                    "points": 10.94,
+                    "first_place": false
+                },
+                "aster_vv": {
+                    "points": 3.72,
+                    "first_place": true
+                },
+                "asteri06": {
+                    "points": 2.23,
+                    "first_place": true
+                },
+                "axes101": {
+                    "points": 1.53,
+                    "first_place": false
+                },
+                "blanc9999": {
+                    "points": 3.17,
+                    "first_place": true
+                },
+                "crunexx": {
+                    "points": 0.59,
+                    "first_place": false
+                },
+                "darklordofbunnies": {
+                    "points": 2.82,
+                    "first_place": true
+                },
+                "destroyer8587": {
+                    "points": 3.67,
+                    "first_place": false
+                },
+                "eggvis": {
+                    "points": 3.68,
+                    "first_place": true
+                },
+                "johnprettyderby": {
+                    "points": 2.86,
+                    "first_place": false
+                },
+                "kuwarala": {
+                    "points": 4.27,
+                    "first_place": true
+                },
+                "lagixbtd": {
+                    "points": 3.67,
+                    "first_place": false
+                },
+                "linh124": {
+                    "points": 3.71,
+                    "first_place": true
+                },
+                "merkeddd": {
+                    "points": 4.62,
+                    "first_place": true
+                },
+                "mewtsurugi": {
+                    "points": 4.62,
+                    "first_place": true
+                },
+                "o0lupusregina0o": {
+                    "points": 2.0,
+                    "first_place": false
+                },
+                "pengwulf_57": {
+                    "points": 2.69,
+                    "first_place": true
+                },
+                "pi.txt": {
+                    "points": 2.58,
+                    "first_place": true
+                },
+                "powerfulcar": {
+                    "points": 3.28,
+                    "first_place": true
+                },
+                "rubylunaria": {
+                    "points": 3.17,
+                    "first_place": true
+                },
+                "senkizu_": {
+                    "points": 2.69,
+                    "first_place": true
+                },
+                "txkyel": {
+                    "points": 3.17,
+                    "first_place": true
+                },
+                "valine5397": {
+                    "points": 3.2,
+                    "first_place": false
+                },
+                "yeenster": {
+                    "points": 2.69,
+                    "first_place": true
+                },
+                "yerd_yerd": {
+                    "points": 2.69,
+                    "first_place": true
+                }
+            }
+        },
+        {
+            "date": "2025-04-12",
+            "players": {
+                ".lil_panda": {
+                    "points": 1.18,
+                    "first_place": false
+                },
+                "arzen_": {
+                    "points": 2.68,
+                    "first_place": true
+                },
+                "aster_vv": {
+                    "points": 0.62,
+                    "first_place": false
+                },
+                "asteri06": {
+                    "points": 1.86,
+                    "first_place": false
+                },
+                "axes101": {
+                    "points": 1.86,
+                    "first_place": false
+                },
+                "blanc9999": {
+                    "points": 2.25,
+                    "first_place": false
+                },
+                "darklordofbunnies": {
+                    "points": 5.6,
+                    "first_place": true
+                },
+                "destroyer8587": {
+                    "points": 1.08,
+                    "first_place": false
+                },
+                "eggvis": {
+                    "points": 5.6,
+                    "first_place": true
+                },
+                "hikaru_r0": {
+                    "points": 16.72,
+                    "first_place": false
+                },
+                "johnprettyderby": {
+                    "points": 2.63,
+                    "first_place": true
+                },
+                "kernalpult33": {
+                    "points": 3.77,
+                    "first_place": true
+                },
+                "kuwarala": {
+                    "points": 5.14,
+                    "first_place": true
+                },
+                "lagixbtd": {
+                    "points": 0.76,
+                    "first_place": false
+                },
+                "linh124": {
+                    "points": 3.34,
+                    "first_place": false
+                },
+                "merkeddd": {
+                    "points": 3.59,
+                    "first_place": false
+                },
+                "mewtsurugi": {
+                    "points": 2.77,
+                    "first_place": true
+                },
+                "o0lupusregina0o": {
+                    "points": 2.35,
+                    "first_place": false
+                },
+                "pengwulf_57": {
+                    "points": 2.9,
+                    "first_place": true
+                },
+                "powerfulcar": {
+                    "points": 5.14,
+                    "first_place": true
+                },
+                "rubylunaria": {
+                    "points": 3.85,
+                    "first_place": false
+                },
+                "senkizu_": {
+                    "points": 5.14,
+                    "first_place": true
+                },
+                "th3deadsilent": {
+                    "points": 2.44,
+                    "first_place": false
+                },
+                "txkyel": {
+                    "points": 2.42,
+                    "first_place": true
+                },
+                "valine5397": {
+                    "points": 2.68,
+                    "first_place": true
+                },
+                "yeenster": {
+                    "points": 2.3,
+                    "first_place": true
+                },
+                "yerd_yerd": {
+                    "points": 2.68,
+                    "first_place": true
+                }
+            }
+        }
+    ]
+}
