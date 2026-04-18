@@ -187,6 +187,19 @@ def update_championship_values(
 
     print(f"Updated championship values in {hall_of_fame_path}...")
 
+def fetch_total_wins(hall_of_fame_path: str) -> Dict[str, int]:
+    with open(hall_of_fame_path, "r") as f:
+        hall_of_fame_data = json.load(f)
+
+    totals: Dict[str, int] = defaultdict(int)
+
+    for record in hall_of_fame_data.get("results", []):
+        for player, stats in record.get("players", {}).items():
+            if stats.get("first_place"):
+                totals[player] += 1
+
+    return dict(totals)
+
 # pulls from optional command line args
 def main(argv: Optional[List[str]] = None) -> None:
     parser = argparse.ArgumentParser(description="Calculate poll results into point allocations")

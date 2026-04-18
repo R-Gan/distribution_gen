@@ -1,6 +1,7 @@
 from pathlib import Path
 from typing import Dict, List, Optional
 from src.discord_formatter._core import load_race_lineups_map
+from src.discord_formatter._core import fetch_timestamp
 import argparse
 
 def main(argv: Optional[List[str]] = None) -> None:
@@ -9,9 +10,8 @@ def main(argv: Optional[List[str]] = None) -> None:
     TOTAL_HORSE_ANSWER = 18
 
     parser = argparse.ArgumentParser(description="Generate Discord poll command from a single lineup")
-    parser.add_argument("--lineup-file", default="race_lineups/dummy_lineup.json")
-    parser.add_argument("--time", type=int, default=1893499200, help="Unix timestamp for the poll duration")
-
+    parser.add_argument("--lineup-file", required=True, help="Default path after running generate_discord_announcement.py is race_lineups. Exmaple value: race_lineups/Satsuki Sho.json")
+    parser.add_argument("--url", required=True, help="URL must be from https://en.netkeiba.com. Example: https://en.netkeiba.com/race/shutuba.html?race_id=202606030811")
 
     args = parser.parse_args(argv)
     
@@ -22,10 +22,11 @@ def main(argv: Optional[List[str]] = None) -> None:
     print("==================================\n")
 
     race_lineup = load_race_lineups_map(args.lineup_file)
+    timestamp = fetch_timestamp(args.url)
     race_name = Path(args.lineup_file).stem
 
     command = "/timepoll"
-    time = f"time:{args.time}"
+    time = f"time:{timestamp}"
     question = f"question:Select 3 horses for the {race_name}"
     type = "type:Hidden (Select Menu)"
     maxchoices = "maxchoices:3"
